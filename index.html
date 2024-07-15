@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         @keyframes fundo-animado {
+				0%{background-position-x: 0%;}
+				100%{background-position-x: 100%;}
+        }
+        html,body{
+            background-image:linear-gradient(140deg,#80e6b1, #6b94cf,#34ec64);
+            animation:fundo-animado 5s infinite alternate;
+            background-size: 500% 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border: 0;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+        }
+        #div-index{
+            color: white;
+            width: 100%;
+            height: 80vh;
+            font-family: "Rubik", sans-serif; 
+        }
+        #div-index h1{
+            font-size: 300%;
+        }
+        #triangulo-retangulo {
+            width: 0;
+            height: 0;
+            border-bottom: 20vh solid white;
+            border-right: 100vw solid transparent;
+
+        }
+        #logo-shelf-index{
+            margin-top: 12vh;
+            height: 15%;
+        }
+	#começar-index {
+            text-decoration: none;
+            margin-top: -5vh; /* Adicionado espaço acima do botão */
+            border-radius: 15px;
+            border: none;
+            background-color: white; /* Cor de fundo do botão */
+            color: #6b94cf; /* Cor do texto do botão */
+            padding: 10px 20px; /* Espaçamento interno do botão */
+            font-size: 3vh; /* Tamanho da fonte do botão */
+            cursor: pointer; /* Cursor ao passar por cima do botão */
+            transition: background-color 0.3s, color 0.3s; /* Transição suave */
+	    z-index:9999;
+        }
+	    #começar-index:hover {
+            background-color: #0773D8;
+            color: white;
+        }
+	.animate {
+     	    transform: translateY(-100%);
+    	}
+	#animacao-shelf{
+        	width: 100vw;
+            max-height: 100vh;
+        	position: absolute;
+        	top: 50%;
+        	transform: translate(-50%, -50%);
+        	left: 50%;
+        	z-index: -9999;
+    	}
+    </style>
+</head>
+<body>
+    <img id="animacao-shelf" src="imgs/animacao-shelf.gif" alt="">
+    <div id="header">
+    <div id="div-index">
+        <img id="logo-shelf-index" src="imgs/logo-shelf-branco.png" alt="">
+        <h1 id="text1">bem vindo ao<br><strong>SISTEMA DE<br>ENTREGAS</strong></h1>
+        <button id="começar-index">Começar</button>
+    </div>
+    <div id="triangulo-retangulo"></div>
+    </div>
+    <script>
+        document.getElementById('começar-index').addEventListener('click', function() {
+          document.querySelector('#header').classList.add('animate');
+        setTimeout(function() {
+                document.querySelector('#animacao-shelf').style.zIndex = '1';
+            }, 1000);
+        setTimeout(function() {
+                window.location.href = 'monitor-geral.html';
+            }, 3000); // Redireciona após 1 segundo para permitir a animação
+        });
+      </script>
+</body>
+</html>

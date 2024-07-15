@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupo Shelf</title>
+    <link rel="shortcut icon" href="imgs/favcon.png">
+    <style>
+        @keyframes fundo-animado {
+				0%{background-position-x: 0%;}
+				100%{background-position-x: 100%;}
+        }
+        body, html{
+            border: 0;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-color: #FAFAFA;
+        }
+        header{
+            display: flex;
+            position: fixed;
+            width: 100%;
+            
+        }
+        .header{
+            height: 40px;
+            width: 100%;
+            background-color: white;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+        .header a{
+            text-decoration: none;
+            color: #111829;
+            font-size: 13.333px;
+            font-family: Arial;
+            padding: 10px 20px;;
+            border-radius: 5px;
+            border: none;
+            background-color: white; /* Cor de fundo do botão */
+            cursor: pointer; /* Cursor ao passar por cima do botão */
+            transition: background-color 0.3s, color 0.3s;
+            position: relative;
+            transform: translate(-50%, -50%);
+            top: 10px;
+        }
+        .header a:hover{
+            background-color: #80e6b1;
+            color: white;
+        }
+        .sair{
+            height: 50px;
+            width: 40px;
+            background-size: 500% 100%;
+            background-image:linear-gradient(140deg,#80e6b1, #6b94cf,#34ec64);
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            display: flex;
+            align-items: center;
+            animation:fundo-animado 5s infinite alternate;
+            box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+
+        }
+        .sair img{
+            margin-left: 5%;
+            width: 90%;
+        }
+        .espaco-branco{
+            height: 40px;
+            width: 10px;
+            background-color: white;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+        .barra-lateral{
+            background-color: white;
+            width: 340px;
+            height: 100vh;
+        }
+        .usuario-lateral{
+            margin-top: 25%;
+            width:200px;
+            margin-left: 70px;
+        }
+        .user-name{
+            color: #111829;
+            font-size: 36px;
+            font-family: Arial;
+            padding: 10px 20px;
+            position: relative;
+            margin-left: 90px;
+            margin-top: -10px;
+        }
+        .animate {
+     	    transform: translateX(-100%);
+    	}
+        .animate2 {
+     	    transform: translateX(0%);
+    	}
+        #user-main{
+            width: 24px;
+            height: 24px;
+            position: absolute;
+            top: 60px;
+            left: 305px;
+            border:none;
+            font-family: Arial;
+            color: white;
+        }
+        #user-main:hover{
+            background-color: #80e6b1;
+        }
+        #user-top{
+            position: absolute;
+            top:0;
+            right: 5%;
+            height: 60px;
+            width: 60px;
+            border: none;
+            background-color: transparent;
+            z-index: -9999;
+        }
+        #user-top img:hover{
+            border-radius: 100%;
+            background-color: #6b94cf;
+        }
+        #user-top img{
+            height: 60px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="espaco-branco"></div>
+        <div>
+            <a href="index.html"><div class="sair"><img src="imgs/deslogar.png" alt=""></div></a>
+        </div>
+        <div class="header">
+            <a href="entregas.html">Entregas</a>
+            <a href="#">Motoristas</a>
+            <a href="#">histórico</a>
+        </div>
+    </header>
+    <main>
+        <div class="barra-lateral">
+            <button id="user-main">X</button>
+            <img class="usuario-lateral" src="imgs/usuario.webp" alt="">
+            <p class="user-name">Usuario</p>   
+        </div>
+        <button id="user-top"><img src="imgs/usuario.webp" alt=""></button>
+        <script>
+            document.getElementById('user-main').addEventListener('click', function() {
+                document.querySelector('.barra-lateral').classList.add('animate');
+                document.querySelector('#user-top').style.zIndex = '1';
+            });
+        </script>
+    </main>
+</body>
+</html>
